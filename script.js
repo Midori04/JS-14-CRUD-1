@@ -59,17 +59,29 @@ var button = document.querySelector(".btn").addEventListener("click", function (
             
             const pElement2 = document.createElement("p")            
             pElement2.classList = `reading${element.id}`            
-            pElement2.innerHTML = element.readCount;            
+            pElement2.innerHTML = "Reading: "+element.readCount;            
             document.querySelector(`.cont${element.id}`).appendChild(pElement2);
-            
-        }
-    });
-}
 
-)
+            const btnUpdate = document.createElement("button")            
+            btnUpdate.classList = `update${element.id}`            
+            btnUpdate.innerHTML = "Update"           
+            document.querySelector(`.cont${element.id}`).appendChild(btnUpdate);
+
+            
+           
+            document.querySelector(`.update${element.id}`).addEventListener("click", function () {
+              let newBody = prompt("Hva er body?")
+              document.querySelector(`.pTag${element.id}` ).innerHTML = newBody;
+            })
+            
+          }
+    });
+
+
+  })
 
 var button = document.querySelector(".btn2").addEventListener("click", function () {
-    const bookName = document.querySelector(".input").value;
+    // const bookName = document.querySelector(".input").value;
     document.querySelector(".container2").innerHTML = "";
     data.forEach(element => {
         
@@ -89,10 +101,28 @@ var button = document.querySelector(".btn2").addEventListener("click", function 
 
         const pElement2 = document.createElement("p")
         pElement2.classList = `pTag${element.id}`
-        pElement1.innerHTML = element.body;
+        pElement2.innerHTML = element.readCount;
         document.querySelector(`.cont${element.id}`).appendChild(pElement2);
 
+        const btnUpdate = document.createElement("button")            
+        btnUpdate.classList = `update${element.id}`            
+        btnUpdate.innerHTML = "Update"           
+        document.querySelector(`.cont${element.id}`).appendChild(btnUpdate);
+        
+        // let id = `update${element.id}`;
+        // console.log(id);
+        // // document.querySelector(`update${element.id}`).addEventListener("click", upDate(id))
 
     });
 }
 )
+
+
+
+
+
+function start() {
+  document.querySelector(".container2").innerHTML = "";
+}
+
+start();
